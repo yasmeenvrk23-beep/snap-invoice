@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapInvoice - Side Hustle AI</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-50 p-4 max-w-md mx-auto">
+    <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">
+        <h1 class="text-xl font-bold text-slate-800">SnapInvoice 🧾</h1>
+        <p class="text-sm text-slate-600">Snap a photo of your receipt to sort it instantly.</p>
+        
+        <input type="file" accept="image/*" capture="environment" id="receiptInput" class="w-full border p-2 rounded-lg text-sm">
+        
+        <button onclick="processReceipt()" class="w-full bg-blue-600 text-white p-2 rounded-lg font-medium">Extract Details</button>
+        
+        <div id="result" class="hidden bg-slate-100 p-3 rounded-lg text-sm space-y-1">
+            <p><strong>Merchant:</strong> <span id="resMerchant">Coffee Shop</span></p>
+            <p><strong>Amount:</strong> <span id="resAmount">$4.50</span></p>
+            <p><strong>Category:</strong> <span id="resCategory">Meals & Entertainment</span></p>
+        </div>
+    </div>
+
+    <script>
+        function processReceipt() {
+            const input = document.getElementById('receiptInput');
+            if(input.files && input.files[0]) {
+                document.getElementById('result').classList.remove('hidden');
+                alert('Receipt captured successfully! (AI parsing simulation active)');
+            } else {
+                alert('Please take or upload a photo first.');
+            }
+        }
+    </script>
+</body>
+</html>
